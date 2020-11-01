@@ -12,7 +12,7 @@ function fibonacci(n, memo = {}) {
   if (n in memo) {
     return memo[n];
   }
-  if (n <= 1) {
+  if (n <= 2) { //*** Chanch By Me (Server Calc Error)***
     return 1;
   }
   return (memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo));
@@ -58,7 +58,7 @@ app.get("/getFibonacciResults", async (req, res) => {
   });
 });
 
-const PORT = 5050;
+const PORT = process.env.PORT || 5050;
 app.listen(5050, () => {
   console.log(`App listening on port ${PORT}`);
   console.log("Press Ctrl+C to quit.");
